@@ -18,7 +18,7 @@ template:
   scale:
     maxReplicas: 1
     minReplicas: 1
-managedEnvironmentId: /subscriptions/e4847ba9-5afa-46c4-a287-17317c49d18f/resourceGroups/rg-aca-multicontainer/providers/Microsoft.App/managedEnvironments/containerapps-env-dev 
+managedEnvironmentId: /subscriptions/[SUBSCRIPTION_ID]/resourceGroups/[RESOURCE_GROUP_NAME]/providers/Microsoft.App/managedEnvironments/[CONTAINERAPPS_ENV] 
 configuration:
   activeRevisionsMode: Multiple
   ingress:
