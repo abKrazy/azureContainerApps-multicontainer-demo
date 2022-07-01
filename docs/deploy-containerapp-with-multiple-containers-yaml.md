@@ -61,33 +61,32 @@ An environment in `Azure Container Apps` creates a secure boundary around a grou
     ```yaml
     cat manifests/vote.containerapp.yaml
 
-    type: Microsoft.App/ContainerApps
-template:
-  containers:
-  - name: redis
-    image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
-    env:
-    - name: TCP_PORT
-      value: 6379
-    - name: ALLOW_EMPTY_PASSWORD
-      value: 'yes'
-  - name: vote
-    image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
-    env:
-    - name: HTTP_PORT
-      value: 80
-    - name: REDIS
-      value: localhost
-  scale:
-    maxReplicas: 1
-    minReplicas: 1
-managedEnvironmentId: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.App/managedEnvironments/<CONTAINERAPPS_ENVIRONMENT_NAME> 
-configuration:
-  activeRevisionsMode: Multiple
-  ingress:
-    external: true
-    allowInsecure: false
-    targetPort: 80
+    type: Microsoft.Web/containerApps
+    template:
+    containers:
+    - name: redis
+        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+        env:
+        - name: TCP_PORT
+          value: 6379
+        - name: ALLOW_EMPTY_PASSWORD
+          value: 'yes'
+    - name: vote
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+        env:
+        - name: HTTP_PORT
+          value: 80
+        - name: REDIS
+          value: localhost
+    scale:
+        maxReplicas: 1
+        minReplicas: 1
+    kubeEnvironmentId: /subscriptions/[SUBSCRIPTION_ID]/resourceGroups/[CONTAINER_APP_NAME]/providers/Microsoft.Web/kubeEnvironments/[CONTAINER_APP_ENV]
+    configuration:
+    activeRevisionsMode: Multiple
+    ingress:
+        external: true
+        targetPort: 80
     ```
 
 - Create a Containerapp for `vote-app` microservice using the `yaml` manifest.
