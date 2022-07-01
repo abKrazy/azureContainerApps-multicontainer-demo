@@ -35,14 +35,9 @@ With Azure Container Apps, you can:
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 - Install the Azure Container Apps extension to the CLI
     ```sh
-    az extension add \+-
-        --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl
+    az extension add -n containerapp
     ```
-- Register `Microsoft.Web` namespace
 
-    ```sh
-    az provider register --namespace Microsoft.Web
-    ```
 
 ## Scenarios
 
