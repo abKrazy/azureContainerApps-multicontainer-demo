@@ -1,5 +1,6 @@
 # Azure Container Apps Demo
-Deploy Containerized Microservices Application to Azure Container Apps
+This is a demo for deploying multiple containers (frontend UI container and backend redis container) within the same Azure Container App.
+Note: this example does not use Dapr.
 
 ## Overview
 
