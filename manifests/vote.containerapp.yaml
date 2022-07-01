@@ -1,4 +1,4 @@
-type: Microsoft.Web/containerApps
+type: Microsoft.App/ContainerApps
 template:
   containers:
   - name: redis
@@ -18,9 +18,10 @@ template:
   scale:
     maxReplicas: 1
     minReplicas: 1
-kubeEnvironmentId: /subscriptions/5c8f3e12-757e-4183-a8d0-80effb7bf97f/resourceGroups/saty-containerapps/providers/Microsoft.Web/kubeEnvironments/saty-containerapps-env 
+managedEnvironmentId: /subscriptions/e4847ba9-5afa-46c4-a287-17317c49d18f/resourceGroups/rg-aca-multicontainer/providers/Microsoft.App/managedEnvironments/containerapps-env-dev 
 configuration:
   activeRevisionsMode: Multiple
   ingress:
     external: true
+    allowInsecure: false
     targetPort: 80
