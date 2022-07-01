@@ -61,7 +61,7 @@ An environment in `Azure Container Apps` creates a secure boundary around a grou
     ```yaml
     cat manifests/vote.containerapp.yaml
 
-    type: Microsoft.Web/containerApps
+    type: Microsoft.App/ContainerApps
     template:
     containers:
     - name: redis
@@ -81,11 +81,12 @@ An environment in `Azure Container Apps` creates a secure boundary around a grou
     scale:
         maxReplicas: 1
         minReplicas: 1
-    kubeEnvironmentId: /subscriptions/[SUBSCRIPTION_ID]/resourceGroups/[CONTAINER_APP_NAME]/providers/Microsoft.Web/kubeEnvironments/[CONTAINER_APP_ENV]
+    managedEnvironmentId: /subscriptions/[SUBSCRIPTION_ID]/resourceGroups/[RESOURCE_GROUP_NAME]/providers/Microsoft.App/managedEnvironments/[CONTAINERAPPS_ENV]
     configuration:
     activeRevisionsMode: Multiple
     ingress:
         external: true
+        allowInsecure: false
         targetPort: 80
     ```
 
